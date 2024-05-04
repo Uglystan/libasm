@@ -5,11 +5,14 @@ section.text:
 	global ft_strlen
 
 ft_strlen:
-	mov rax, 0
+	; On utilise mov pour initialiser le registre rcx a 0 mais on peut
+	; aussi utiliser xor rcx, rcx ce qui est un peu plus performant
+	mov rcx, 0
 _while:
-	cmp byte [rdi + rax], 0
+	cmp byte [rdi + rcx], 0
 	je _end_while
-	inc rax
+	inc rcx
 	jmp _while
 _end_while:
+	mov rax, rcx
 	ret

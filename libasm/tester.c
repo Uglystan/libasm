@@ -2,7 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
-// #include <stdlib.h>
+#include <stdlib.h>
 
 extern int ft_strlen(char *str);
 extern ssize_t ft_write(int fd, const void *buf, size_t count);

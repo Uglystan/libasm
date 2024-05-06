@@ -2,7 +2,7 @@
 AS = nasm
 ASFLAGS = -f elf64
 NAME = libasm.a
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
 RM = rm -rf
@@ -16,10 +16,11 @@ SRC =		ft_strlen.s \
 OBJ = $(SRC:.s=.o)
 
 %.o: %.s
-	$(AS) $(ASFLAGS) -o $@ $<
+	$(AS) $(ASFLAGS) -o $@ $?
 
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 all: $(NAME)
 
